@@ -1,0 +1,42 @@
+<h1 class="heading">Update User Details</h1>
+
+<form class="example-form" [formGroup]="this.userGroup">
+    <table class="example-full-width" cellspacing="0"><tr>
+      <!-- first name filed -->
+        <td><mat-form-field class="example-full-width">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="first_name">
+        </mat-form-field></td>
+        <!-- last name field-->
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="last_name">
+        </mat-form-field></td>
+    </tr>
+    <tr>
+      <!-- email filed -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="Ex. pat@example.com" required>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </tr>
+    <tr>
+      <!-- image url field -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Image URL</mat-label>
+            <input matInput formControlName="pic_path">
+        </mat-form-field>
+    </tr>
+    </table>
+
+    <br><br>
+    <button (click)="onUpdateUser()" mat-raised-button color="primary">Update User</button>&nbsp;&nbsp;
+    <button (click)="onCancel()" mat-raised-button color="warn">Cancel</button>
+ 
+</form>
